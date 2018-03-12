@@ -9,12 +9,12 @@ Runs a game of hangman using a random word from the list below
 import random
 
 #this is the word list that can be changed at anytime these are the words used for the game
-my_dict={'chunky':'------', 'disobey':'-------', 'grand':'-----',
-         'diplomacy':'---------', 'hostage':'-------', 'filter':'------',
+my_dict={'chunky':'------', 'disobey':'-------', 'grand':'-----', 'winner':'------',
+         'diplomacy':'---------', 'hostage':'-------', 'filter':'------', 'battle':'------',
          'morsel':'------', 'below':'-----', 'block':'-----', 'guard':'-----', 
-         'melt':'----', 'danger':'------', 'more':'----', 'red':'---',
+         'melt':'----', 'danger':'------', 'more':'----', 'red':'---', 'funny':'-----',
          'joy':'---', 'stick':'-----', 'focus':'-----', 'blunder':'-------',
-         'jade':'----', 'fairy':'-----', 'tale':'----'}
+         'jade':'----', 'fairy':'-----', 'tale':'----', 'tree':'---', 'day':'---'}
 
 #selects a random key from the list
 rand_word=random.choice(my_dict.keys())
@@ -122,7 +122,11 @@ while True:
     #this the redefines the hidden word as the hidden word + the guess
     else:
         guesses.append(guess)
-        my_dict[rand_word]=(my_dict[rand_word][:ind]+guess+my_dict[rand_word][ind+1:])
+        new_word=rand_word
+        while ind!=-1:
+            new_word=new_word[:ind]+'-'+new_word[ind+1:]    
+            my_dict[rand_word]=my_dict[rand_word][:ind]+guess+my_dict[rand_word][ind+1:]
+            ind=new_word.find(guess)
 
     #this will terminate the code when the player has no more lives
     if lives==0:

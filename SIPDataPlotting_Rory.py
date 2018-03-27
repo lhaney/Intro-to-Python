@@ -2,6 +2,7 @@
 SIP Data Plotting Code
 BY RORY MARTIN
 **GIVE CREDIT IF YOU USE A PORTION OF THE CODE**
+***Ignore comments, they are from an older file***
 '''
 #Imports the necessary mondules
 import matplotlib
